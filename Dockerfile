@@ -1,5 +1,7 @@
 FROM eclipse-temurin:11 as build
-RUN git clone https://github.com/akuniutka/simple-http-server.git simple-http-server && \
+RUN apt update && \
+    apt -y install git && \
+    git clone https://github.com/akuniutka/simple-http-server.git simple-http-server && \
     simple-http-server/mvnw -f simple-http-server/pom.xml
 RUN $JAVA_HOME/bin/jlink \
     --add-modules java.base \
