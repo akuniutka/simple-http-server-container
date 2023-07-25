@@ -16,7 +16,7 @@ ENV JAVA_HOME=/opt/java/openjdk
 RUN mkdir -p $JAVA_HOME
 ENV PATH "${JAVA_HOME}/bin:${PATH}"
 COPY --from=build /javaruntime $JAVA_HOME
-RUN mkdir /opt/http-server
+RUN mkdir /opt/simple-http-server
 COPY --from=build simple-http-server/target/simple-http-server-1.0-SNAPSHOT.jar /opt/simple-http-server/simple-http-server.jar
 CMD ["java", "-jar", "/opt/simple-http-server/simple-http-server.jar"]
 
