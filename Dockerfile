@@ -13,6 +13,7 @@ RUN $JAVA_HOME/bin/jlink \
 
 FROM alpine:latest
 ENV JAVA_HOME=/opt/java/openjdk
+RUN mkdir -p $JAVA_HOME
 ENV PATH "${JAVA_HOME}/bin:${PATH}"
 COPY --from=build /javaruntime $JAVA_HOME
 RUN mkdir /opt/http-server
