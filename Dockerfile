@@ -11,7 +11,7 @@ RUN $JAVA_HOME/bin/jlink \
     --compress=2 \
     --output /javaruntime
 
-FROM alpine:latest
+FROM ubuntu:latest
 ENV JAVA_HOME=/opt/java/openjdk
 RUN mkdir -p $JAVA_HOME
 ENV PATH "${JAVA_HOME}/bin:${PATH}"
